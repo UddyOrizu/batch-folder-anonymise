@@ -1,0 +1,4 @@
+payment_id;created_at;payee;company;amount;iban;card;memo
+P-001;2026-05-01;José Müller;Bloom & Wild Partners LLP;£1,250.00;GB82 WEST 1234 5698 7654 32;;Consulting fees – José Müller, invoice 4471
+P-002;2026-05-03;Zoë Brontë-Clarke;Acme Holdings;£980.50;;4111 1111 1111 1111;Card refund to Zoë for CloudLedger licence
+P-003;2026-05-09;Tomasz Nowak;Acme UK;£4,000.00;GB82 WEST 1234 5698 7654 32;;Director loan repayment – Nowak (UTR 73521 90462)

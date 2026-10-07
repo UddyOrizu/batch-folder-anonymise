@@ -1,0 +1,12 @@
+presidio-analyzer>=2.2.355
+presidio-anonymizer>=2.2.355
+spacy==3.8.7
+fastcoref==2.1.6
+# fastcoref 2.1.6 predates recent transformers releases; pin an older one if model loading fails
+transformers>=4.30,<4.46
+torch>=2.0
+python-docx>=1.1
+
+# then:
+#   python -m spacy download en_core_web_lg   (Presidio NER)
+#   python -m spacy download en_core_web_sm   (fastcoref tokenisation)

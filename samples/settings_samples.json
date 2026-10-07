@@ -1,0 +1,184 @@
+{
+  "language": "en",
+  "spacy_model": "en_core_web_lg",
+  "score_threshold": 0.4,
+  "replacement_format": "<{entity_type}_{index}>",
+  "entities": [
+    "PERSON",
+    "EMAIL_ADDRESS",
+    "PHONE_NUMBER",
+    "LOCATION",
+    "IBAN_CODE",
+    "CREDIT_CARD",
+    "IP_ADDRESS",
+    "UK_NHS",
+    "ORGANIZATION",
+    "ORGANIZATION_RELATED_ENTITY"
+  ],
+  "include_spacy_organizations": true,
+  "allow_list": [
+    "BDO Template",
+    "Appendix"
+  ],
+  "link_partial_names": true,
+  "name_part_search": true,
+  "regex_recognizers": [
+    {
+      "name": "NHS number",
+      "entity": "NHS_NUMBER",
+      "patterns": [
+        {
+          "name": "nhs_spaced",
+          "regex": "\\b\\d{3}[ -]?\\d{3}[ -]?\\d{4}\\b",
+          "score": 0.3
+        }
+      ],
+      "context": [
+        "nhs",
+        "nhs number",
+        "nhs no",
+        "patient",
+        "health"
+      ],
+      "validator": "nhs_mod11"
+    },
+    {
+      "name": "UK National Insurance number",
+      "entity": "UK_NINO",
+      "patterns": [
+        {
+          "name": "nino",
+          "regex": "\\b(?!BG|GB|NK|KN|TN|NT|ZZ)[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z] ?\\d{2} ?\\d{2} ?\\d{2} ?[A-D]\\b",
+          "score": 0.7
+        }
+      ],
+      "context": [
+        "national insurance",
+        "ni number",
+        "nino"
+      ]
+    },
+    {
+      "name": "UK tax reference (UTR)",
+      "entity": "UK_UTR",
+      "patterns": [
+        {
+          "name": "utr",
+          "regex": "\\b\\d{5} ?\\d{5}\\b",
+          "score": 0.2
+        }
+      ],
+      "context": [
+        "utr",
+        "unique taxpayer reference",
+        "tax reference",
+        "self assessment"
+      ]
+    },
+    {
+      "name": "UK postcode",
+      "entity": "UK_POSTCODE",
+      "patterns": [
+        {
+          "name": "postcode",
+          "regex": "\\b[A-Z]{1,2}\\d[A-Z\\d]? ?\\d[A-Z]{2}\\b",
+          "score": 0.6
+        }
+      ],
+      "context": [
+        "postcode",
+        "address"
+      ]
+    },
+    {
+      "name": "Internal client ID",
+      "entity": "CLIENT_ID",
+      "enabled": true,
+      "patterns": [
+        {
+          "name": "client_id",
+          "regex": "\\bCL-\\d{6}\\b",
+          "score": 0.9
+        }
+      ]
+    }
+  ],
+  "keyword_recognizers": [
+    {
+      "entity": "ORGANIZATION",
+      "score": 1.0,
+      "case_sensitive": false,
+      "keywords": [
+        {
+          "name": "Acme Holdings (UK) Limited",
+          "aliases": [
+            "Acme Holdings",
+            "Acme UK",
+            "AHL",
+            "Acme"
+          ]
+        },
+        {
+          "name": "Northern Rivers Healthcare NHS Foundation Trust",
+          "aliases": [
+            "Northern Rivers Trust",
+            "NRHFT"
+          ]
+        },
+        "Bloom & Wild Partners LLP"
+      ],
+      "keywords_file": "org_keywords.txt"
+    },
+    {
+      "entity": "ORGANIZATION_RELATED_ENTITY",
+      "score": 1.0,
+      "case_sensitive": false,
+      "keywords": [
+        {
+          "name": "Acme CloudLedger Pro",
+          "aliases": [
+            "CloudLedger Pro",
+            "CloudLedger"
+          ]
+        },
+        {
+          "name": "Project Falcon",
+          "aliases": [
+            "Falcon programme"
+          ]
+        },
+        "RiverCare Patient Portal"
+      ],
+      "keywords_file": null
+    }
+  ],
+  "coref": {
+    "enabled": true,
+    "model": "FCoref",
+    "device": "cpu",
+    "spacy_model": "en_core_web_sm",
+    "entities": [
+      "PERSON",
+      "ORGANIZATION",
+      "ORGANIZATION_RELATED_ENTITY"
+    ],
+    "replace_pronouns": false,
+    "alias_scope": "session",
+    "min_chars": 40,
+    "max_chars_per_chunk": 5000
+  },
+  "csv": {
+    "has_header": true,
+    "columns": [],
+    "skip_columns": [
+      "id",
+      "created_at",
+      "ticket_id",
+      "payment_id",
+      "employee_id"
+    ]
+  },
+  "docx": {
+    "clear_metadata": true
+  }
+}

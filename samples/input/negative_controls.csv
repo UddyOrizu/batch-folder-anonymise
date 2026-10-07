@@ -1,0 +1,10 @@
+case,text,should_change
+invalid NHS,Reference 943 476 5918 on the old form is a typo,NHS_NUMBER must not fire (Presidio may still call it a PHONE_NUMBER)
+allow list,See Appendix C of the BDO Template for details,no
+org inside email,Write to info@acme-example.com for help,only the email as a whole
+org inside domain,Docs live at https://acme.example.org/help,only the URL as a whole (if URL enabled)
+lowercase common word,The falcon flew over the river,no - only the two-word programme name is a keyword
+partial keyword,Acmeology is a made-up word,no (word boundary)
+plain numbers,Order 12345 shipped in 2026 with 3 boxes,no
+pronouns only,She said they would call him tomorrow,no
+disabled regex,Internal ref CL-777123 in default settings,"no with settings.json, yes with settings_samples.json"

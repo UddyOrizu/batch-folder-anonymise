@@ -1,0 +1,6 @@
+id,created_at,client_name,organisation,contact_email,phone,postcode,nhs_number,product,notes
+1,2026-01-14,Priya Raman,Acme Holdings (UK) Limited,priya.raman@acme-example.com,0161 496 0213,M3 3EB,,CloudLedger Pro,Key contact for Acme. Prefers email.
+2,2026-02-02,Marcus Bell,Bloom & Wild Partners LLP,m.bell@bloomwild-example.org,07700 900461,LS1 4AP,,Project Falcon,Marcus is the hosting lead.
+3,2026-02-20,James O'Connor,Northern Rivers Healthcare NHS Foundation Trust,james.oconnor@example.net,07700 900334,WA14 2LT,485 777 3457,RiverCare Patient Portal,Patient portal pilot participant.
+4,2026-03-11,Sarah Okafor,NRHFT,s.okafor@nrhft-example.nhs.uk,0113 496 0155,LS2 9JT,4010232137,RiverCare Patient Portal,Clinical lead for the pilot.
+5,2026-03-30,Priya Raman,AHL,priya.raman@acme-example.com,0161 496 0213,M3 3EB,,CloudLedger,"Duplicate record - same person, alias org name."

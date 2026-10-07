@@ -1,0 +1,4 @@
+# one organisation per line: Canonical name|alias|alias
+Pennine Valley Logistics Ltd|Pennine Valley Logistics|Pennine Valley|PVL
+Lime Grove Surgery
+Salford Royal|Salford Royal Hospital
